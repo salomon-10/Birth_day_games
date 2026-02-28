@@ -1,30 +1,95 @@
-/* ===== Corps global ===== */
+/* ===== Corps global (menu ou jeu) ===== */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: #2a2a2b;
-    color: white;
-    overflow: hidden;
+    background-color: #f2f2f2; /* gris clair pour menu, on peut changer dans pages de jeu */
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
     text-align: center;
 }
 
 /* ===== Titres ===== */
-.title {
-    margin-top: 20px;
+header h1, .title {
     font-size: 32px;
-    text-shadow: 0 0 15px #a855f7;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: #444444;
 }
 
-/* ===== Container général ===== */
-.container {
+header h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #555555;
+}
+
+/* ===== Menu des jeux ===== */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    width: 90%;
+    max-width: 1000px;
+    margin-bottom: 50px;
+}
+
+/* ===== Carte de jeu ===== */
+.game-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
+    background-color: #e6e6e6; /* gris doux */
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* ===== Input pour index.html ===== */
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* Image et boutons */
+.game-card img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.game-card button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #cccccc;
+    color: #333333;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.game-card button:hover {
+    background-color: #bbbbbb;
+}
+
+/* ===== Pages de jeu (canvas) ===== */
+canvas {
+    width: 90%; 
+    max-width: 480px; 
+    height: auto; 
+    margin: 20px auto;
+    display: block;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+}
+
+/* ===== Inputs et boutons index ===== */
 input[type="text"] {
     padding: 12px 20px;
     font-size: 16px;
@@ -43,8 +108,7 @@ input[type="text"]::placeholder {
     color: rgba(255,255,255,0.7);
 }
 
-/* ===== Boutons ===== */
-button {
+button.index-btn {
     margin: 10px;
     padding: 12px 25px;
     font-size: 16px;
@@ -58,32 +122,12 @@ button {
     box-shadow: 0 0 10px #a855f7;
 }
 
-button:hover {
+button.index-btn:hover {
     transform: scale(1.1);
     background: #a855f7;
 }
 
-/* ===== Menu de jeux ===== */
-.menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-/* ===== Canvas pour jeux ===== */
-canvas {
-    width: 90%; 
-    max-width: 480px; 
-    height: 300px; 
-    margin: 20px auto;
-    display: block;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(20px);
-}
-
-/* ===== Overlay pour messages/fin de jeu ===== */
+/* ===== Overlay / fin de jeu ===== */
 .overlay {
     position: absolute;
     top: 0;
@@ -98,48 +142,11 @@ canvas {
     font-size: 28px;
 }
 
-/* ===== Classe cachée ===== */
 .hidden {
     display: none;
 }
 
-/* ===== Adaptation responsive ===== */
-@media (max-width: 600px) {
-    .title {
-        font-size: 24px;
-    }
-
-    button, input[type="text"] {
-        font-size: 14px;
-        padding: 10px 20px;
-    }
-
-    .overlay {
-        font-size: 22px;
-    }
-}
-/* Carte d'un jeu : image + bouton */
-.game-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 15px;
-}
-
-/* Image des jeux */
-.game-card img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 0 15px #a855f7;
-    transition: transform 0.3s;
-}
-
-.game-card img:hover {
-    transform: scale(1.05);
-}
-/* Contrôles mobiles */
+/* ===== Contrôles mobiles ===== */
 .mobile-controls {
     position: fixed;
     bottom: 20px;
@@ -166,24 +173,47 @@ canvas {
 .mobile-controls button:active {
     background: #a855f7;
 }
-/* ===== Menu responsive des cards ===== */
-.menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    padding: 10px;
-}
 
-/* Ajustements pour mobile */
-@media (max-width: 600px) {
-    .game-card img {
-        width: 150px;
-        height: 120px;
+/* ===== Adaptation responsive ===== */
+@media (max-width: 768px) {
+    header h1, .title {
+        font-size: 28px;
     }
 
-    .game-card button {
+    header h2 {
+        font-size: 20px;
+    }
+
+    .game-card img {
+        max-width: 140px;
+    }
+
+    .game-card button, button.index-btn {
         font-size: 14px;
         padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1, .title {
+        font-size: 24px;
+    }
+
+    header h2 {
+        font-size: 18px;
+    }
+
+    .menu {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+    }
+
+    .game-card img {
+        max-width: 120px;
+    }
+
+    .game-card button, button.index-btn {
+        font-size: 13px;
+        padding: 6px 12px;
     }
 }

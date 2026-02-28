@@ -2,33 +2,51 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeux d'anniversaire</title>
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1 id="welcome"></h1>
 
-    <h2>Choisis ton jeu :</h2>
-    <div class="menu">
-    <div class="game-card">
-        <img src="img/cake.jpeg" alt="grab cakes">
-        <button onclick="window.location.href='game1.html'">grab cakes</button>
-    </div>
+    
+    <header>
+        <h1 id="welcome"></h1>
+        <h2>Choisis ton jeu :</h2>
+    </header>
 
-    <div class="game-card">
-        <img src="img/ballons.jpeg" alt="percer les ballons">
-        <button onclick="window.location.href='game2.html'">baloons</button>
-    </div>
-    <div class="game-card">
-        <img src="img/obstacle.jpeg" alt="évite les obstacles">
-        <button onclick="window.location.href='game3.html'">obstacles</button>
-     <div class="game-card">
-        <img src="img/tetris.jpeg" alt="Tetris">
-        <button onclick="window.location.href='game4.html'">Tetris</button>
-    </div>
-</div>
-    <div id="game-container"></div>
+ 
+    <main>
+        <div class="menu">
+            <div class="game-card">
+                <img src="img/cake.jpeg" alt="grab cakes">
+                <button onclick="goToGame('game1.html')">Grab Cakes</button>
+            </div>
 
-    <script src="game.js"></script>
+            <div class="game-card">
+                <img src="img/ballons.jpeg" alt="percer les ballons">
+                <button onclick="goToGame('game2.html')">Balloons</button>
+            </div>
+
+            <div class="game-card">
+                <img src="img/obstacle.jpeg" alt="évite les obstacles">
+                <button onclick="goToGame('game3.html')">Obstacles</button>
+            </div>
+
+            <div class="game-card">
+                <img src="img/tetris.jpeg" alt="Tetris">
+                <button onclick="goToGame('game4.html')">Tetris</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+      
+        const username = localStorage.getItem('username') || "Invité";
+        document.getElementById('welcome').innerText = `🎉 Bienvenue ${username} !`;
+        function goToGame(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>
