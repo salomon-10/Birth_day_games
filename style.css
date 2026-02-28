@@ -25,27 +25,27 @@ header h2 {
     color: #555555;
 }
 
-/* ===== Menu des jeux ===== */
+
 .menu {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    justify-items: center;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
     width: 90%;
-    max-width: 1000px;
-    margin-bottom: 50px;
+    max-width: 700px;
+    margin: 40px auto;
 }
 
-/* ===== Carte de jeu ===== */
+
 .game-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #e6e6e6; /* gris doux */
+    background-color: #e6e6e6; 
+     padding: 20px;
     border-radius: 12px;
-    padding: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+   
 }
 
 .game-card:hover {
@@ -53,7 +53,6 @@ header h2 {
     box-shadow: 0 8px 16px rgba(0,0,0,0.15);
 }
 
-/* Image et boutons */
 .game-card img {
     width: 100%;
     max-width: 180px;
@@ -77,7 +76,6 @@ header h2 {
     background-color: #bbbbbb;
 }
 
-/* ===== Pages de jeu (canvas) ===== */
 canvas {
     width: 90%; 
     max-width: 480px; 
@@ -89,7 +87,6 @@ canvas {
     backdrop-filter: blur(20px);
 }
 
-/* ===== Inputs et boutons index ===== */
 input[type="text"] {
     padding: 12px 20px;
     font-size: 16px;
@@ -127,7 +124,6 @@ button.index-btn:hover {
     background: #a855f7;
 }
 
-/* ===== Overlay / fin de jeu ===== */
 .overlay {
     position: absolute;
     top: 0;
@@ -194,26 +190,25 @@ button.index-btn:hover {
     }
 }
 
+
 @media (max-width: 480px) {
-    header h1, .title {
-        font-size: 24px;
-    }
-
-    header h2 {
-        font-size: 18px;
-    }
-
     .menu {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 15px;
+        gap: 12px;
+        width: 95%;
+    }
+
+    .game-card {
+        padding: 10px;
     }
 
     .game-card img {
+        width: 100%;
         max-width: 120px;
+        height: auto;
     }
 
-    .game-card button, button.index-btn {
+    .game-card button {
         font-size: 13px;
-        padding: 6px 12px;
+        padding: 6px 10px;
     }
 }
