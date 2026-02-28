@@ -4,49 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeux d'anniversaire</title>
-  <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== Reset simple ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #fce7f3, #ede9fe);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* ===== Header ===== */
+        header {
+            margin-top: 40px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        header h2 {
+            font-size: 22px;
+            font-weight: 400;
+            color: #555;
+        }
+
+        /* ===== Menu Grid ===== */
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            width: 90%;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        /* ===== Game Card ===== */
+        .game-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-card img {
+            width: 100%;
+            max-width: 180px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .game-card button {
+            padding: 10px 20px;
+            font-size: 15px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .game-card button:hover {
+            transform: scale(1.08);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .menu {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            header h1 {
+                font-size: 26px;
+            }
+
+            header h2 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-card img {
+                max-width: 140px;
+            }
+
+            .game-card button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    
     <header>
         <h1 id="welcome"></h1>
-        <h2>Choisis ton jeu :</h2>
+        <h2>Choisis ton jeu 🎮</h2>
     </header>
 
- 
     <main>
         <div class="menu">
             <div class="game-card">
-                <img src="img/cake.jpeg" alt="grab cakes">
-                <button onclick="goToGame('game1.html')">Grab Cakes</button>
+                <img src="img/cake.jpeg" alt="Grab Cakes">
+                <button data-url="game1.html">Grab Cakes</button>
             </div>
 
             <div class="game-card">
-                <img src="img/ballons.jpeg" alt="percer les ballons">
-                <button onclick="goToGame('game2.html')">Balloons</button>
+                <img src="img/ballons.jpeg" alt="Balloons">
+                <button data-url="game2.html">Balloons</button>
             </div>
 
             <div class="game-card">
-                <img src="img/obstacle.jpeg" alt="évite les obstacles">
-                <button onclick="goToGame('game3.html')">Obstacles</button>
+                <img src="img/obstacle.jpeg" alt="Obstacles">
+                <button data-url="game3.html">Obstacles</button>
             </div>
 
             <div class="game-card">
                 <img src="img/tetris.jpeg" alt="Tetris">
-                <button onclick="goToGame('game4.html')">Tetris</button>
+                <button data-url="game4.html">Tetris</button>
             </div>
         </div>
     </main>
 
     <script>
-      
-        const username = localStorage.getItem('username') || "Invité";
-        document.getElementById('welcome').innerText = `🎉 Bienvenue ${username} !`;
-        function goToGame(url) {
-            window.location.href = url;
-        }
+        // Récupération du nom utilisateur
+        const username = localStorage.getItem("username") || "Invité";
+        document.getElementById("welcome").textContent = `🎉 Bienvenue ${username} !`;
+
+        // Gestion navigation propre
+        document.querySelectorAll(".game-card button").forEach(button => {
+            button.addEventListener("click", () => {
+                const url = button.dataset.url;
+                window.location.href = url;
+            });
+        });
     </script>
+
 </body>
 </html>

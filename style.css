@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #f2f2f2; /* gris clair pour menu, on peut changer dans pages de jeu */
+    background-color: #000000; 
     color: #333333;
     display: flex;
     flex-direction: column;
