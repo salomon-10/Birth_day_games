@@ -1,19 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salomon Birthday Pro 🎉</title>
-    <link rel="stylesheet" href="style.css">
+  
+
+    <style>
+        /* ===== Corps global ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f2f2f2; /* gris clair doux */
+    color: #333333; /* texte sombre mais pas noir pur */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* ===== Fond décoratif ===== */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e6e6e6; /* un gris un peu plus clair pour le contraste */
+    z-index: -1;
+}
+
+/* ===== Titre ===== */
+.title {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #444444;
+}
+
+/* ===== Formulaire nom ===== */
+.username {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Label */
+.username label {
+    font-size: 16px;
+    color: #555555;
+}
+
+/* Input */
+.username input[type="text"] {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Bouton */
+.username button {
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #cccccc; /* gris doux */
+    color: #333333;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.username button:hover {
+    background-color: #bbbbbb; /* un peu plus foncé au survol */
+}
+    </style>
 </head>
 <body>
 
-<div class="background"></div>
+    <!-- Fond décoratif -->
+    <div class="background"></div>
 
-<h1 class="title">🎉 SALOMON BIRTHDAY GAMES 🎮</h1>
+    <!-- Titre principal -->
+    <header>
+        <h1 class="title">🎉 SALOMON BIRTHDAY GAMES 🎮</h1>
+    </header>
 
- <div class ="username">
-    <label for="usernameInput">Enter your name:</label>
-    <input type="text" id="usernameInput" placeholder="Your name">
-    <button id="startButton" onclick='window.location.href="game.html"'>Start Game</button>
- </div>
+    <!-- Section pour entrer le nom -->
+    <main>
+        <section class="username">
+            <label for="usernameInput">Enter your name:</label>
+            <input type="text" id="usernameInput" placeholder="Your name">
+            <button id="startButton" onclick="startGame()">Start Game</button>
+        </section>
+    </main>
+
+    <script>
+        // Redirection avec sauvegarde du nom
+        function startGame() {
+            const name = document.getElementById('usernameInput').value || "Invité";
+            localStorage.setItem('username', name);
+            window.location.href = "game.html";
+        }
+    </script>
 </body>
 </html>

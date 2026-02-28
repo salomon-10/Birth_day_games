@@ -2,8 +2,8 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: #0f0f1a;
-    color: white;
+    background: rgba(20, 151, 85, 0.842);
+    color: rgba(148, 145, 145, 0.842);
     overflow: hidden;
     text-align: center;
 }
@@ -30,8 +30,8 @@ input[type="text"] {
     font-size: 16px;
     border: none;
     border-radius: 30px;
-    background: rgba(168,85,247,0.2);
-    color: white;
+    background: rgba(255, 255, 255, 0.534);
+    color: rgb(0, 0, 0);
     backdrop-filter: blur(10px);
     margin-bottom: 20px;
     text-align: center;
