@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeu 4 - Tetris</title>
+<link rel="stylesheet" href="style.css">
+ <link rel="icon" href="img/tetris.jpeg" />
+<style>
+  body {
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    background:#0f0f1a;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+  }
+  canvas {
+    margin-top:20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius: 10px;
+  }
+  .mobile-controls {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 10;
+  }
+  .mobile-controls button {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(168,85,247,0.6);
+    color:white;
+    box-shadow:0 0 10px #a855f7;
+    cursor:pointer;
+    user-select:none;
+  }
+  .mobile-controls button:active {
+    background:#a855f7;
+  }
+</style>
+</head>
+<body>
+<h1 class="title">Salut <span id="username"></span> ! 🎮 Tetris</h1>
+<canvas id="game-canvas" width="200" height="400"></canvas>
+
+<div class="mobile-controls">
+  <button id="left-btn">⬅</button>
+  <button id="rotate-btn">🔄</button>
+  <button id="right-btn">➡</button>
+  <button id="down-btn">⬇</button>
+</div>
+
+<a href="game.html"><button>Retour au menu</button></a>
+
+<script>
+const username = localStorage.getItem('username') || "Invité";
+document.getElementById('username').innerText = username;
+</script>
+<script src="tetris.js"></script>
+</body>
+</html>

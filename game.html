@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeux d'anniversaire</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="welcome"></h1>
+
+    <h2>Choisis ton jeu :</h2>
+    <div class="menu">
+    <div class="game-card">
+        <img src="img/cake.jpeg" alt="grab cakes">
+        <button onclick="window.location.href='game1.html'">grab cakes</button>
+    </div>
+
+    <div class="game-card">
+        <img src="img/ballons.jpeg" alt="percer les ballons">
+        <button onclick="window.location.href='game2.html'">baloons</button>
+    </div>
+    <div class="game-card">
+        <img src="img/obstacle.jpeg" alt="évite les obstacles">
+        <button onclick="window.location.href='game3.html'">obstacles</button>
+     <div class="game-card">
+        <img src="img/tetris.jpeg" alt="Tetris">
+        <button onclick="window.location.href='game4.html'">Tetris</button>
+    </div>
+</div>
+    <div id="game-container"></div>
+
+    <script src="game.js"></script>
+</body>
+</html>

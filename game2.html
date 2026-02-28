@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+ <link rel="icon" href="img/ballons.jpeg" />
+<title>Jeu 2 - Toucher les Ballons</title>
+<style>
+    body {
+        margin:0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #0f0f1a;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+    }
+    canvas {
+        margin-top: 20px;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(20px);
+        display: block;
+        margin-left:auto;
+        margin-right:auto;
+    }
+</style>
+</head>
+<body>
+    <h1 class="title"></span> ! 🎈 Toucher les ballons</h1>
+    <canvas id="game-canvas" width="320" height="480"></canvas>
+    <a href="game.html"><button>Retour au menu</button></a>
+
+    <script>
+        const username = localStorage.getItem('username') || "Invité";
+        document.getElementById('username').innerText = username;
+    </script>
+    <script src="ballons.js"></script>
+</body>
+</html>

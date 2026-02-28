@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+     <link rel="icon" href="img/cake.jpeg" />
+    
+    <title>cake</title>
+   
+</head>
+<body>
+    <div class="container">
+        <h1></span> ! 🎉 Bienvenue au catch cakes </h1>
+        <div id="game-container">
+            <canvas id="game-canvas" width="320" height="480"></canvas>
+        </div>
+        <a href="game.html"><button>Retour au menu</button></a>
+    </div>
+
+    <script>
+        const username = localStorage.getItem('username') || "Invité";
+        document.getElementById('username').innerText = username;
+    </script>
+ <br> <br>
+     <div class="mobile-controls">
+    <button id="left-btn">⬅</button>
+    <button id="right-btn">➡</button>
+</div>
+
+    <script src="cake.js"></script>
+</body>
+</html>
